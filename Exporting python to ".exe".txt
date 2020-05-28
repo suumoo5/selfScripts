@@ -1,4 +1,4 @@
-## Exporting python to .exe ## 
+## Exporting python to .exe, basicamente haciendolo un daemon ## 
 
 1. Si no tenes intalado pyinstaller, instalarlo
 >pip install pyinstaller
