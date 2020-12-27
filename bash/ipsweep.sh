@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ["$1" == ""];
+if [ "$1" == "" ];
 then
 	echo "You forgot an ip address!"
 	echo "Syntax: ./ipsweep.sh [ip]"
@@ -11,4 +11,3 @@ else
 		ping -c 1 $1.$ip | grep "64 bytes" | cut -d " " -f 4 | tr -d ":" &
 	done
 fi
-wait
